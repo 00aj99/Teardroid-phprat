@@ -30,7 +30,7 @@ ________________________________________________________________________________
 """
 
 url = raw_input("\nEnter your website url here = ")
-print "User ip: 000.000.000.000\nType help to get all command list"#+getuserip()+ "\nType help to get all command list"
+print "User ip: "+getuserip()+ "\nType help to get all command list"
 
 def loading():
     n = 100
