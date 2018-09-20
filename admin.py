@@ -57,7 +57,6 @@ def help():
     commands results
     
     ls       list of all victims
-    set      set target ex : set 1234        (1234 = target userid)
     getcon   get all contacts from user android device
     getsms   get all sms from user android device
     getcalllogs  get all call history
