@@ -1,8 +1,9 @@
 # Teardroid-phprat
 
 
-its easy to use android php rat the best part is no port forwarding needed also work as ransomware \n
-requirement:
+its easy to use android php rat the best part is no port forwarding needed also work as ransomware 
+
+# requirement:
 1.python 2x installed
 2.android studio
 3.website
